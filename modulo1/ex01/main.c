@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "print.h"
 int main(){
 	//Declaring the variables
 	int x = 5; 
@@ -13,17 +14,6 @@ int main(){
 	printf("The adress of xPtr = %p \n",&xPtr);
 	printf("The value pointed by xPtr = %i \n",*xPtr);
 	printf("The adress of vec = %p \n",&vec);
-	
-	
-	for (int i=0;i < 4; i++)
-	{
-		printf("The value of vec[%i] = %i \n",i,vec[i]);
-	}
-	
-	for (int i=0;i < 4; i++)
-	{
-		printf("The adress of vec[%i] = %p \n",i,&vec[i]);
-	}
 	
 	return 0;
 }
