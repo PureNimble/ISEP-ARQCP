@@ -5,7 +5,7 @@
 
 /* Function declaration to print array */
 void printArray(int arr[], int size);
-
+void copy_vec(int *vec1, int *vec2, int n);
 
 int main()
 {
@@ -21,27 +21,30 @@ int main()
     /*
      * Input size and elements in source array
      */
-    printf("Enter size of array: ");
-    scanf("%d", &size);
-    printf("Enter elements in array: ");
-    for (i = 0; i < size; i++)
-    {
-        scanf("%d", (source_ptr + i));
+    printf("Enter the size of the array: ");
+    scanf("%d",&size);
+    
+    int arr[size];
+
+    for(int i=0; i<size; i++){
+        printf("Enter the Array elements: ");
+            scanf("%d",&arr[i]);
     }
+    
 
-
-    // Pointer to last element of source_arr
-    end_ptr = &source_arr[size - 1];
-
-
+	
     /* Print source and destination array before copying */
     printf("\nSource array before copying: ");
     printArray(source_arr, size);
 
     printf("\nDestination array before copying: ");
     printArray(dest_arr, size);
-
-
+	
+	
+	
+	copy_vec(array,
+	// Pointer to last element of source_arr
+    end_ptr = &source_arr[size - 1];
 
     /*
      * Run loop till source_ptr exists in source_arr
@@ -84,3 +87,9 @@ void printArray(int *arr, int size)
         printf("%d, ", *(arr + i));
     }
 }
+void copy_vec(int *vec1, int *vec2, int n)
+{
+	
+	
+}
+
