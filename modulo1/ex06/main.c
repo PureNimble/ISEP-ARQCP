@@ -6,15 +6,15 @@ int main()
 {	
 	int a;
 	int b;
-	printf("Valor 1:");
+	printf("Valor x:");
     scanf("%i",&a);
 
-    printf("Valor 2:");
+    printf("Valor y:");
     scanf("%i",&b);
    
     power_ref(&a,b);
 
-    printf("a = %i",a);
+    printf("a = %i\n",a);
     return 0;
 }
 
