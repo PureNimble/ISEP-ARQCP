@@ -21,7 +21,7 @@ int main(){
         printf("\n");
         copy_vec(vec1, vec2, n);
         for(int i = 0; i<n; i++){
-                printf("Value of vec2[%i], before copy: %i \n",i, vec2[i]);
+                printf("Value of vec2[%i], after copy: %i \n",i, vec2[i]);
                 }
         return 0;
 }
