@@ -1,5 +1,6 @@
 void power_ref(int *x, int y){
-	int resultado = 1;
+	//Declaration of variables
+		int resultado = 1;
     while (y != 0)
     {
         resultado *= *x;
