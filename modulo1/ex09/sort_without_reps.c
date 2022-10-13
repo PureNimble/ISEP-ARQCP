@@ -9,20 +9,27 @@ int sort_without_reps(int *src, int n, int *dest)
 		int counter =  n;
 	//Pass the elements of src to dest
     for(i=0;i<n;i++){
-        *(dest+i) = *(src+i);
+        *dest = *src;
+        src++;
+        dest++;
     }
     //Remove the repeated numbers
     for(i=0;i<n;i++){
-        for(j = i+1; j < n; j++){
-            if((int)*(dest+i) == (int)*(dest+j)){
+        for(j = 1; j < n; j++){
+            if(*dest == *dest){
 				counter--;
                 for(k = j; k <n; k++){
-                    *(dest+k) = *((dest+k)+1);
+					
+                    *dest = (int)dest++;
+                    
+                  dest++
                 }
                 j--;
                 n--;
             }
+            dest++;
         }
+        dest++;
     }
     //Put the elements in order
     for (i = 0; i < n; ++i) {
