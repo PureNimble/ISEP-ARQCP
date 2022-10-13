@@ -2,25 +2,23 @@
 #include "upper1.h"
 
 int main() {
-    
-        char string[] = "ThisIsATest";
-        int arraySize = sizeof(string) / sizeof(string[0]);
-        printf("String before transformation: ");
-        int i;
-        for (i= 0; i< arraySize; i++) {
-            printf("%c", string[i]); //prints array information
-        } 
-        printf("\n");
-        
-        char *str = string; //pointer that points to the array
-        
-        upper1(str);
-        
-        printf("String before transformation: ");
-       
-		for (int j = 0; j < arraySize; j++) {
-			printf("%c", string[j]);			//prints array information
-		} 
+	
+		//Declaration of the variables
+			char string[] = "This is a test";
+			int arraySize = sizeof(string) / sizeof(string[0]);
+        //Prints of the array
+			printf("String before transformation: ");
+			for (int i= 0; i< arraySize; i++) {
+				printf("%c", string[i]); //prints array information
+			} 
+			printf("\n");
+		//Use of the function upper1
+			upper1(string);
+        //Prints of the array
+			printf("String before transformation: ");
+			for (int j = 0; j < arraySize; j++) {
+				printf("%c", string[j]);			//prints array information
+			} 
         
         
         return 0;
