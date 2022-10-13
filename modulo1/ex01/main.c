@@ -33,5 +33,6 @@ int main(){
 	b) The address of vec is the same as the address of vec[0] as it is the initial position of the array, the next addresses of the array values
 	     are all followed, having a size of 4 bytes as we are working with integers 
 	c)Every time the computer starts the program, it randomly chooses registers that are free to be used. 
-	      So being on another computer the addresses will be different */
+	      So being on another computer the addresses will be different 
+	*/
 }
