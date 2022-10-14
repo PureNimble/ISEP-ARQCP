@@ -8,6 +8,7 @@ int sort_without_reps(int *src, int n, int *dest)
 		int a;
 		int counter =  n;
 	//Pass the elements of src to dest
+	
     for(i=0;i<n;i++){
         *dest = *src;
         src++;
