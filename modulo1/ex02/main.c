@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "copy_vec.h"
 
-
 int main(){
         
         int n;
