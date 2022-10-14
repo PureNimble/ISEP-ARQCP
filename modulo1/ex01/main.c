@@ -29,10 +29,15 @@ int main(){
 	return 0;
 	
 	/* 
-	a) Read the comments
-	b) The address of vec is the same as the address of vec[0] as it is the initial position of the array, the next addresses of the array values
-	     are all followed, having a size of 4 bytes as we are working with integers 
-	c)Every time the computer starts the program, it randomly chooses registers that are free to be used. 
-	      So being on another computer the addresses will be different 
+	a) 	The value x is 5 because it is the value that we set the variable x to. 
+	 	The value of y is 8 because the pointer (*xPtr) is set to the address of x -> (5 + 3).
+		The address of x comes after the address of xPtr because the smallest goes to the smallest byte
+		The value by *xPtr is 5 because it points to the address of x which currently has the value of 5
+		The address of vec is the address of the first element of the array and it is given by &vec[0]
+	
+	b) 	The address of vec is the same as the address of vec[0] as it is the initial position of the array, the next addresses of the array values
+			are all followed, having a size of 4 bytes as we are working with integers.
+	c)	Every time the computer starts the program, it randomly chooses registers that are free to be used. 
+			So being on another computer the addresses will be different 
 	*/
 }
