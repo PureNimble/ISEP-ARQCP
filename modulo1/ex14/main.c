@@ -12,8 +12,12 @@ int main()
 		int vecNotas[21];
     // Print and scan the elements of a array
 		for(int i = 0; i<n; i++){
+			do
+			{
 			printf("\nQual a nota do %iº aluno? ", i+1);
 			scanf("%f", &vec[i]);
+			}
+			while(vec[i] < 0 || vec [i] > 20);
 			}
 	//Print the elements if the array
 		for(int i = 0; i<n; i++){
