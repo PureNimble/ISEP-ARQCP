@@ -6,11 +6,11 @@ void array_sort1(int *vec, int n)
 		for (i = 0; i < n; ++i) {
 			for (j = i + 1; j < n; ++j)
 			{
-				if (*(vec+i) > *(vec+j)) 
+				if (vec[i] > vec[j]) 
 				{
-					a =  *(vec+i);
-					*(vec+i) = *(vec+j);
-					*(vec+j) = a;
+					a =  vec[i];
+					vec[i] = vec[j];
+					vec[j] = a;
 				}
 			}
 		 }
