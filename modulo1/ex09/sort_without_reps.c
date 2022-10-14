@@ -1,49 +1,44 @@
-//function
+
 int sort_without_reps(int *src, int n, int *dest) 
-{
+{	
+
 	//Declaration of the variables
-		int i;
-		int j;
-		int k;
-		int a;
-		int counter =  n;
+	int i, j, k, a;
+	int contador = 0;
 	//Pass the elements of src to dest
-	
-    for(i=0;i<n;i++){
-        *dest = *src;
-        src++;
-        dest++;
-    }
+		int *p =dest;
+		for(i=0;i<n;i++){
+			*p = *src;
+			p++;
+			src++;
+			
+		}
     //Remove the repeated numbers
-    for(i=0;i<n;i++){
-        for(j = 1; j < n; j++){
-            if(*dest == *dest){
-				counter--;
-                for(k = j; k <n; k++){
-					
-                    *dest = (int)dest++;
-                    
-                  dest++
-                }
-                j--;
-                n--;
-            }
-            dest++;
-        }
-        dest++;
-    }
+    int *x = dest;
+		for(i=0;i<n;i++){
+			for(j = i+1; j < n; j++){
+				if(*(x+i) == *(x+j)){
+					for(k = j; k <n; k++){
+						*(x+k) = *(x+(k+1));
+						contador = n - 1;
+					}
+					j--;
+					n--;
+				}
+			}
+		}
     //Put the elements in order
-    for (i = 0; i < n; ++i) {
-        for (j = i + 1; j < n; ++j)
-        {
-            if (*(dest+i) > *(dest+j)) 
-            {
-                a =  *(dest+i);
-                *(dest+i) = *(dest+j);
-                *(dest+j) = a;
-            }
-        }
-     }
-     
-     return counter;
+    int *r= dest;
+		for (i = 0; i < n; ++i) {
+			for (j = i + 1; j < n; ++j)
+			{
+				if (*(r+i) > *(r+j)) 
+				{
+					a =  *(r+i);
+					*(r+i) = *(r+j);
+					*(r+j) = a;
+				}
+			}
+		 }
+		 return contador;
 }
