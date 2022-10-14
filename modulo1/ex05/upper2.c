@@ -1,9 +1,9 @@
 void upper2(char *str) {
     
-    while(*str != '\0'){
-        if(*str >= 97 && *str <= 122){ //97 is "a" and 122 is "z"
-			*str = *str - 32;          //-32 is the upper char of the same letter
-		}
+    for(int i = 0; i < 30; i++) {
+        if(*str >= 65 + 32 && *str <= 90 + 32) { //65+32 is "a" and 90+32 is "z"
+            *str = *str - 32;
+        }
         str++;// skips one position of the array
     }
 }
