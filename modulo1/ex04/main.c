@@ -4,22 +4,16 @@
 int main() {
 	
 		//Declaration of the variables
-			char string[] = "This is a test";
-			int arraySize = sizeof(string) / sizeof(string[0]);
-        //Prints of the array
-			printf("String before transformation: ");
-			for (int i= 0; i< arraySize; i++) {
-				printf("%c", string[i]); //prints array information
-			} 
+			char string[30]; 
+        //Prints and scan of the string
+			printf("Write a phrase: ");
+			scanf("%s",string);
 			printf("\n");
 		//Use of the function upper1
 			upper1(string);
         //Prints of the array
-			printf("String before transformation: ");
-			for (int j = 0; j < arraySize; j++) {
-				printf("%c", string[j]);			//prints array information
-			} 
-        
+			printf("String after transformation: %s \n",string);
+		
         
         return 0;
 }
