@@ -2,8 +2,19 @@
 #include "odd_sum.h"
 
 int main(){
-	int vec[] = {5,1,4,7,8};
-	
+	//Declaration of the size
+		int size;
+	//Print and scan of the size
+		printf("Enter the size of the array: ");
+		scanf("%d",&size);
+	//Declaration of the array
+		int vec[size];
+		vec[0] = size;
+	// Scan the elemets
+		for (int i = 1; i < size; i++){
+			printf("Enter the elemetns of the array: ");
+			scanf("%d",&vec[i]);
+		}
 	printf("Array: ");
 	for (int i = 0; i < vec[0]; i++) {     
         printf("%d ", vec[i]);     
