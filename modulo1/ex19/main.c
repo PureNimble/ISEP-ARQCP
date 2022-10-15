@@ -9,20 +9,21 @@ int main()
     int i;
     int j;
     int flag = -1; 
-    int n; 
-    int m;
-    
+    int n = 0; 
+    int m = 0;
+    //scan 
     printf("Escreva uma frase: ");
     fgets(frase, 50, stdin);
-    
+    //Uppercase capslock
     for(int i = 0; i < 50; i++) {
         if(frase[i] >= 65 + 32 && frase[i] <= 90 + 32) {
             frase[i] = frase[i] - 32;
         }
     }
+    //scan 
     printf("Que palavra deseja procurar?: ");
     scanf("%s", word);
-    
+    //uppercase
     for(int i = 0; i < 50; i++) {
         if(word[i] >= 65 + 32 && word[i] <= 90 + 32) {
             word[i] = word[i] - 32;
@@ -30,11 +31,16 @@ int main()
     }
     
     initial_addr = &frase[0];
+    //size of the array
+    for(i = 0; (frase[i] == '\0'); i++){
+        n++;
+    }
+    for(i = 0; (word[i] == '\0'); i++){
+        m++;
+    }
     
-    n = strlen(frase);
-    m = strlen(word);
     
-
+	// Find the word in the phrase
     while (i < n) {
         j = 0;
         while (i < n && j < m && initial_addr[i] == word[j]) {
@@ -49,6 +55,7 @@ int main()
         }
         ++i;
     }
+    //give the adress of the first letter in the word 
     char* final_addr;
     if (flag != -1){
         final_addr = &initial_addr[flag];
