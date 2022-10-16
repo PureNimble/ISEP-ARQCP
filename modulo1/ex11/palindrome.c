@@ -3,13 +3,13 @@ int palindrome(char *str){
 	int lenght = 0;
 	
 	
-	//converts all lowercase letters to uppercase letters in order to elimate the influence of capitalization
+	//Uppercase convertion
 	for (i = 0; str[i] != 0; i++){
 		if(str[i] >= 97 && str[i] <= 122){
 			str[i] = str[i] - 32;
 		}
 	}
-	// calculates the lenght of the array to be used in the algorithms bellow
+	//Find the sentence size
 	for(i = 0; str[i] != 0; i++){
 		lenght++;
 	}
