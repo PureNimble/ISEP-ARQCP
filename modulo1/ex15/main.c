@@ -10,7 +10,7 @@ int main()
 	//Declaration of the functions
 		int num = 100;
 		int arr[num];
-		int limit = 20;
+		int limit = 21;
 		int i;
     //Use of the function which generate random numbers
 		populate(arr,num,limit);
