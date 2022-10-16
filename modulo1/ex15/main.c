@@ -28,6 +28,7 @@ int main()
 			printf("%i ", sets[i]);
 			}
 		printf("}\n");
+	//Use of the function that count the number of sets
 		inc_nsets();
     return 0;
 }
