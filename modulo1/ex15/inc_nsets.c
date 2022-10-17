@@ -9,6 +9,6 @@ void inc_nsets()
 				counter++;
 				}
 		}
-	printf("\nO número de sets é igual a %i \n", counter);
+	printf("\nThe number of sets is: %i \n", counter);
 	
 }
