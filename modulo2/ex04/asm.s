@@ -13,9 +13,9 @@ sum_v3:
 
 	movq op1(%rip), %rcx #place op1 in rcx int 
 	movq op2(%rip), %rax #place op2 in rax int 
-	movq op3(%rip), %rbx #place op3 in rbx long
+	movq op3(%rip), %rsi #place op3 in rbx long
 	movq op4(%rip), %rdx #place op3 in rdx long
-	addq  %rbx, %rdx      #op4 + op3
+	addq  %rsi, %rdx      #op4 + op3
 	subq  %rax, %rdx      #(op4 + op3) - op2
 	subq  %rax, %rdx      #(op4 + op3 - op2) - op2
 	addq  %rcx, %rdx      #(op4 + op3 - op2) + op1
