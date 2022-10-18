@@ -1,9 +1,9 @@
 .section .data
-
-    .global op1,op2,COSNT
+	
+    .global op1,op2			#Declaring the global variables
     
-CONST: .int 20
-  
+CONST:
+	.int 20                 #Defining a constant
 
 .section .text
 
