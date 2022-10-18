@@ -11,15 +11,14 @@ op4:
 .global sum_v3 
 sum_v3:
 
-	movl op1(%rip), %ecx #place op1 in ecx
-	movl op2(%rip), %eax #place op2 in eax
-	movq op3(%rip), %rbx #place op3 in eax
-	movq op4(%rip), %rdx #place op3 in eax
+	movq op1(%rip), %rcx #place op1 in rcx int 
+	movq op2(%rip), %rax #place op2 in rax int 
+	movq op3(%rip), %rbx #place op3 in rbx long
+	movq op4(%rip), %rdx #place op3 in rdx long
 	addq  %rbx, %rdx      #op4 + op3
-	subq  %eax, %rdx      #(op4 + op3) - op2
-	subq  %eax, %rdx      #(op4 + op3) - op2
-	addq  %ecx, %rdx      #(op4 + op3 - op2) + op1
-	addq  %ecx, %rdx	  #(op4 + op3 - op2 + op1) + op1
-	pop   %eax
+	subq  %rax, %rdx      #(op4 + op3) - op2
+	subq  %rax, %rdx      #(op4 + op3 - op2) - op2
+	addq  %rcx, %rdx      #(op4 + op3 - op2) + op1
+	addq  %rcx, %rdx	  #(op4 + op3 - op2 + op1) + op1
 	movq  %rdx, %rax
 	ret            #return the value in %rax
