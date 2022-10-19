@@ -1,14 +1,14 @@
 .section .data
 	
-    .global s		#Declaring the global variables
+    .global byte1,byte2		#Declaring the global variables
     
 .section .text
 
-.global swapBytes   
-swapBytes:
+.global concatBytes  
+concatBytes:
 
-	movw s(%rip), %bx 	#place op1 in ecx   
-	movw $2, %al
+	movw byte1(%rip), %ax 	   
+	movw byte2(%rip), %cx
 	
 	movb %bl, %cl     	#move the the least significant to a register 
 	movb %bh, %bl	   	#move  the most significant byte to the least one
