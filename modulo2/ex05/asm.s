@@ -1,16 +1,18 @@
 .section .data
 	
-    .global x		#Declaring the global variables
+    .global s		#Declaring the global variables
     
 .section .text
 
 .global swapBytes   
 swapBytes:
 
-	movw x(%rip), %ax 	#place op1 in ecx   
-	movb %al, %bl     	#move the the least significant to a register
-	movb %ah, %al	   	#move  the most significant byte to the least one
-	movb %bl, %ah		#move the register value to the most significant value
-
+	movw s(%rip), %ax 	#place  ax =al + ah
+	
+	movb %al, %cl     	# move the least significant
+	movb %ah, %al	
+	addb %al, %al   						
+	movb %cl, %ah		
+	
 
 	ret            #return the value in %eax
