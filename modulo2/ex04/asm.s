@@ -1,11 +1,15 @@
 .section .data
 	
-    .global op1,op2,op3,op4			#Declaring the global variables
+    .global op1		#Declaring the global variables
+    .global op2
+    .global op3	
+    .global op4	
     
 op3:
 	.long 10
 op4:
 	.long 30
+	
 .section .text
 
 .global sum_v3 
