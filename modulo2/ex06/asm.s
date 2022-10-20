@@ -12,5 +12,3 @@ concatBytes:
 	movb byte2(%rip), %ah	#Put byte2 int the most significant byte
 
 	ret            #return the value in %eax
-
-
