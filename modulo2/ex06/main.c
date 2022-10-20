@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include "asm.h"
 
-short s = 0;
 int main(void)
 {
-	printf("Value of s:");
-	scanf("%hu",&s);
-	short ret = swapBytes();
+	printf("Value of byte1:");
+	scanf("%c",&byte1);
+	printf("Value of byte2:");
+	scanf("%c",&byte2);
+	short ret = concatBytes();
 	printf("Value of s after the byte swap: %hu\n",ret);
 	return 0;
 }
