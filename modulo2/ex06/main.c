@@ -6,7 +6,7 @@ int main(void)
 {
 	printf("Value of s:");
 	scanf("%hu",&s);
-	int ret = concatBytes();
+	short ret = swapBytes();
 	printf("Value of s after the byte swap: %hu\n",ret);
 	return 0;
 }

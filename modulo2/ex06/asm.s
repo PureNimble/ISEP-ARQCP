@@ -1,19 +1,19 @@
 .section .data
 	
-    .global byte1,byte2		#Declaring the global variables
+    .global s		#Declaring the global variables
     
 .section .text
 
-.global concatBytes  
-concatBytes:
+.global swapBytes   
+swapBytes:
 
-	movw byte1(%rip), %ax 	   
-	movw byte2(%rip), %cx
+	movw s(%rip), %ax 	#place  ax =al + ah
+	movb $2,%cl
 	
-	movb %bl, %cl     	#move the the least significant to a register 
-	movb %bh, %bl	   	#move  the most significant byte to the least one
-	mulq %al, %bl		#multiplication
-	movb %cl, %bh		#move the register value to the most significant value
-
+	movb  %al, %cl     	# move the least significant to a register
+	movb  %ah, %al		# move the most significant to the least one
+	imulb %al   	    # multiply the previous most significant byte by 2						
+	movb  %cl, %ah		# move the register to the most significant byte
+	
 
 	ret            #return the value in %eax
