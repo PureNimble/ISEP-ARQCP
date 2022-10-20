@@ -4,10 +4,10 @@
 int main(void)
 {
 	printf("Valor byte1:");
-	scanf("%c",&byte1);
+	scanf(" %c ",&byte1);
 	
 	printf("Valor byte2:");
-	scanf("%c",&byte2);
+	scanf(" %c ",&byte2);
 	
 	short ret = concatBytes();
 	
