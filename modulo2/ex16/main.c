@@ -8,7 +8,7 @@ int main(void)
 	printf("Valor de num:");
 	scanf("%ld",&num);
 	
-	long ret = steps();
-	printf("Valor = %ld\n",ret);
+	int ret = steps();
+	printf("Valor = %d\n",ret);
 	return 0;
 }
