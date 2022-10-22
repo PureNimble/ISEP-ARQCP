@@ -4,8 +4,8 @@
 
 
 int main(void)
-{
-	printf("Valor de i:");
+{	
+	printf("Valor de n:");
 	scanf("%d",&i);
 	
 	int ret = somatorio();

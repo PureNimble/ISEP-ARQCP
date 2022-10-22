@@ -1,6 +1,6 @@
 .section .data
 
-	.global i
+	.global i,n
 A:
 		.int 1
 B:
@@ -12,7 +12,20 @@ B:
 somatorio:
 	
 	movl  A(%rip),%eax
-	movl  B(%rip),%ebx
-	movl  i(%rip),%ebx
-	cmp 
+	movl  B(%rip),%esi
+	movl  i(%rip),%edi
+	movl  n(%rip),%ecx
+	
+loop:	
+	
+	imul 	%edi, %edi   	# i*i
+	imul 	%eax, %eax     	# A*A
+	imul 	%edi, %eax		# (i*i) * (A*A)
+	idivl	%esi			# (i*i) * (A*A) / B
+	incl 	%edi			# increase i
+	
+	cmp   %edi, %ecx	# if n > i
+	jg  loop 			#Jump if n > i
+ 		
+end:
 	ret

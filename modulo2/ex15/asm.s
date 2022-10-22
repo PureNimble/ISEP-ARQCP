@@ -13,8 +13,7 @@ compute:
 	
 	imull B(%rip), %eax
 	subl  C(%rip), %eax
-	
-	cltd
+
 	idivl %esi
 	
 	ret
