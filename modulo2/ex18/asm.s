@@ -26,6 +26,5 @@ loop:
 	
 	cmp   %edi, %ecx	# if n > i
 	jg  loop 			#Jump if n > i
- 		
-end:
+ 
 	ret
