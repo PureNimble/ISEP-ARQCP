@@ -1,61 +1,41 @@
 .section .data
 
-	.global x,y
+	.global i,j
 
 .section .text
 
-.global sum,subtraction,multiplication,division,modulus,power2,power3
-sum:
-	
-	movl  x(%rip),%eax
-	addl  y(%rip),%eax
-	
-	ret
-subtraction:
+.global fa,f2a,f3a,f4a
 
-	movl  x(%rip),%eax
-	subl  y(%rip),%eax
+fa:
+	movl i(%rip), %eax
+	movl j(%rip), %esi
+	cmp  %eax, %esi
+	je  if1
+	addl %esi, %eax
+	decl %eax
+	jmp  end
+if1:
+	subl %esi, %eax
+	incl %eax
+f2a:
+	movl i(%rip), %eax
+	movl j(%rip), %esi
+	cmp  %esi, %eax
+	jg if2
+	incl %esi
+	jmp next
+if2:	
+	decl %eax
+next: 
+	imull %esi, %eax
 	
 	ret
-	
-multiplication:
-	
-	movl   x(%rip),%eax
-	imull  y(%rip),%eax
-	
-	ret
-division:
+f3a:
+	movl i(%rip), %eax
+	movl j(%rip), %esi
+	cmp  %esi, %eax
 
-	movl   x(%rip),%eax
-	movl   y(%rip),%esi
-	idivl  %esi
-	
-	ret
-	
-modulus:
-	   
-	movl   x(%rip),%eax
-	cmpl   $0, %eax
-	jl     operation
-	jmp    end
-	
-operation:
-	
-	not    %eax
-	incl   %eax
+f4a:
+
 end:
-	ret
-power2:  
-
-	movl   x(%rip),%eax
-	imull  %eax,%eax
-	
-	ret
-	
-power3:
-
-	movl   x(%rip),%eax 
-	imull  %eax,%eax
-	imull  %eax,%eax
-	
 	ret

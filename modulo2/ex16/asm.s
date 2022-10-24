@@ -7,9 +7,9 @@
 .global steps
 steps:
 	
-	movq num(%rip), %rax
-	movq $3, %rcx
-	movq $0, %rdx
+	movq num(%rip), %rax    #move num to rax
+	movq $3, %rcx           #move 3 to rcx
+	movq $0, %rdx           #move 0 to rdx
 	imulq $3, %rax			#Multiplies by 3
 	addq  $6, %rax			#Adds 6
 	cqo
@@ -18,4 +18,4 @@ steps:
 	subq  num(%rip),%rax	#Subtracts num
 	decq %rax			 	#Subtracts 1
 	
-	ret
+	ret                     #return

@@ -68,7 +68,7 @@ int main(void)
 		break;
 		
 		default:
-		printf("Invalido \n");
+		printf("Error!! \n");
 	}
 	if(i > 0 && i < 8)
 	{

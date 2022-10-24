@@ -6,20 +6,19 @@
 
 .global isMultiple
 isMultiple:
-	movl B(%rip), %eax
-	movl A(%rip), %ecx
-	movl $0, %ebx
+	movq A(%rip), %rax    #put A in rax
+	movq B(%rip), %rcx    #put B in rcx
 	
-	divl %ecx
+	divq %rcx             #rax/rcx, store the rest in rdx
 	
-	cmpl %edx, %ebx
+	cmpq $0, %rdx         #compare 0 to rdx	
+	je isequal            #if rdx = 0 jump to isequal
 	
-	je isequal
-	movb $0, %al
-	jmp end
+	movq $0, %rax         #move 0 to rax
+	jmp end               #jump to end
 	
 isequal:
-	movb $1, %al
+	movq $1, %rax         #move 1 to rax
 	
 end:
-	ret
+	ret                   #return

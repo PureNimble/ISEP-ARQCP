@@ -4,6 +4,9 @@ output: asm.o main.o
 asm.o: asm.s
 	gcc -g -Wall -c asm.s
 	
+function.o: function.s
+	gcc -g -Wall -c function.c
+		
 main.o: main.c
 	gcc -g -Wall -c main.c
 	
