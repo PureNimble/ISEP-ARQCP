@@ -55,8 +55,7 @@ power2:
 power3:
 
 	movl   x(%rip),%eax 
-	movl %eax, %ecx
 	imull  %eax,%eax
-	imull  %ecx,%eax
+	imull  %eax,%eax
 	
 	ret

@@ -29,7 +29,7 @@ increase:
 	subl %eax, %esi
 	
 	imull $180, %esi
-	mov %esi, %eax
+	movl %esi, %eax
 	
 end:
 	ret

@@ -2,6 +2,7 @@
 #include "asm.h"
 
 
+
 int main(void)
 {	
 	
@@ -12,67 +13,58 @@ int main(void)
 	printf("3-Multiplication\n");
 	printf("4-Divison\n");
 	printf("5-Modulus\n");
-	printf("6-Power of 2\n");
-	printf("7-Power of 3\n");
+	printf("6-Powers of 2 and 3\n");
 	scanf("%i",&i);
-	switch(i)
+	if(i == 1)
 	{
-		case 1:
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		printf("Number of y:\n");
 		scanf("%d",&y);
 		ret = sum();
-		break;
-		
-		case 2:
+	}	
+	if(i == 2)
+	{
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		printf("Number of y:\n");
 		scanf("%d",&y);
 		ret = subtraction();
-		break;
-		
-		case 3:
+	}
+	if(i == 3)
+	{
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		printf("Number of y:\n");
 		scanf("%d",&y);
 		ret = multiplication();
-		break;
-		
-		case 4:
+	}
+	if(i == 4)
+	{
 		printf("Dividend:\n");
 		scanf("%d",&x);
 		printf("Divisor:\n");
 		scanf("%d",&y);
 		ret = division();
-		break;
-		
-		case 5:
+	}
+	if(i == 5)
+	{
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		ret = modulus();
-		break;
-		
-		case 6:
+	}
+	if(i == 6)
+	{
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		ret = power2();
-		break;
-		
-		case 7:
+	}
+	if(i == 7)
+	{
 		printf("Number of x:\n");
 		scanf("%d",&x);
 		ret = power3();
-		break;
-		
-		default:
-		printf("Invalido \n");
 	}
-	if(i > 0 && i < 8)
-	{
-		printf("Value = %d\n",ret);
-	}
+	printf("Value = %d\n",ret);
 	return 0;
 }
