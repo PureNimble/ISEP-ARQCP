@@ -1,3 +1,4 @@
+extern int i,j;
 
 int f(){
 	int h;

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "asm.h"
 #include "function.h"
-
 int j,i;
 int main(void)
 {	
@@ -41,7 +40,7 @@ int main(void)
   default:
     printf("Error!! \n");
 }
-	printf("Value in assembly = %d\n",c);
-	printf("Value in c = %d\n",assm);
+	printf("Value in assembly = %d\n",assm);
+	printf("Value in c = %d\n",c);
 	return 0;
 }

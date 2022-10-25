@@ -1,10 +1,10 @@
-output: asm.o main.o
-	gcc asm.o main.o -o output
+output:  function.o asm.o main.o
+	gcc function.o asm.o main.o -o output
 
 asm.o: asm.s
 	gcc -g -Wall -c asm.s
 	
-function.o: function.s
+function.o: function.c
 	gcc -g -Wall -c function.c
 		
 main.o: main.c
