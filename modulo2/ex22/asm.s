@@ -31,22 +31,22 @@ next:
 	
 	ret
 f3a:
-	movl i(%rip), %eax
-	movl j(%rip), %esi
-	cmp  %esi, %eax
-	jge if3
-	
-	leal (%eax, %esi), %edi
-	addl $2, %esi
-	addl $esi, %eax
-	jmp next3
+	movl i(%rip), %eax		#Put i in a register
+	movl j(%rip), %esi		#Put j in a register
+	cmp  %esi, %eax			#compare i with j
+	jge if3					#jump if i is greater or equal
+
+	leal (%esi, %eax), %edi	# i + j and put it in register
+	addl %esi, %eax			# j + i
+	addl $2, %eax			# 2 +( j + i)		
+	jmp next3				#jump to the end of the if
 if3:
-	imul %eax, %esi
-	movl %esi, %edi
-	incl %eax
+	imull %eax, %esi		# i * j
+	movl  %esi, %edi		#move esi to edi			
+	incl  %eax				# i + 1
 	
 next3:
-	idivl %edi
+	idivl %edi				# divide eax / edi
 	
 	ret
 f4a:
