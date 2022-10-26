@@ -50,15 +50,15 @@ next3:
 	
 	ret
 f4a:
-	movl i(%rip), %eax
-	movl j(%rip), %esi
-	leal (%eax,%esi),%edi
-	cmp  $10, %edi
-	jl if4
-	movl $3, %esp
+	movl i(%rip), %eax   	#Put i in a register
+	movl j(%rip), %esi		#Put j in a register	
+	leal (%eax,%esi),%edi	# i + j and is being register in %edi
+	cmp  $10, %edi			#compare 10 with edi
+	jl if4					#jump if edi is less than 10
+	movl $3, %ecx			#			
 	imull %esi,%esi
 	movl %esi, %eax
-	idivl %esp
+	idivl %ecx
 	jmp end
 if4: 	
 	imull %eax,%eax
