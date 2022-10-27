@@ -13,7 +13,7 @@ void frequencies(float *grades, int n, int *freq)
 	//Puting the values of vecI[] in the adress of freq
 		for(int i = 0; i<n; i++){
 			 
-			ptr = freq+ vecI[i] ;
+			ptr = freq+ vecI[i];
 			*ptr = *ptr + 1;
 			ptr = freq;
 			
