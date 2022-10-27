@@ -1,6 +1,6 @@
 .section .data
 
-	.global vec;
+	.global vec
 	
 .section .text
 
