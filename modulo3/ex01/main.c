@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "asm.h"
 
-char vec[] = "701020370567";
+char vec[] = "777777777";
+char *ptr1 = vec;
 int main(void)
 {
 
