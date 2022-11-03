@@ -14,7 +14,6 @@ str_copy_porto:
 str_copy:
 	movb (%rsi), %cl			#copy char to cl
 	cmpb $0,%cl					#check if is the end of the string
-	movb $0, (%rdi)				#put a 0 in the end of the string 
 	jz end						#jump to end
 	cmp $111,%cl				#check if cl is equal to 'o' ($111)
 	jne notequal
@@ -30,4 +29,4 @@ notequal:
 	incq %rdi					#move to next position
 	jmp str_copy
 end:
-	ret
+	movb $0, (%rdi)				#put a 0 in the end of the string 
