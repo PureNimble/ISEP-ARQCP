@@ -38,3 +38,4 @@ equal:
 	jmp str_copy
 end:	
 	movb $0, (%rdi)			#put a 0 in the end of the string 
+	ret

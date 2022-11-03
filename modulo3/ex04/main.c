@@ -5,8 +5,8 @@
 int main()
 {
 	str_copy_porto2();
-	printf(" %s\n",string1);
-	printf(" %s\n",string2);
+	printf("%s\n",ptr1);
+	printf("%s\n",ptr2);
 	
 	return 0;
 }
