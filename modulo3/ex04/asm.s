@@ -1,40 +1,20 @@
 .section .bss
 
-	.global ptr1, ptr2
-	.comm ptr1, 8
-	.comm ptr2, 8
-	
+	.global ptrvec, num
+	.comm ptrvec, 8
+
 .section .text
-.global str_copy_porto2
-str_copy_porto2:
+.global  vec_add_two
+vec_add_two:
 
-	movq ptr1(%rip), %rsi		# move the pointer 1 to rsi
-	movq ptr2(%rip), %rdi		# move the pointer 2 to rdi
+	movq ptrvec(%rip), %rsi		# move the pointer 1 to rsi
+	movl num(%rip), %ecx		# move num to rcx for the number of times 
 
-str_copy:
-	movb (%rsi), %cl			#copy char to cl
-	cmpb $0,%cl					#check if is the end of the string
-	jz end						#jump to end
-	
-	
-	cmp $79,%cl					#check if cl is equal to 'O' ($79)
-	je equal
-	cmp $111,%cl				#check if cl is equal to 'o' ($79)
-	je equal
-	movb %cl, (%rdi)			#move the char to the new string
-	incq %rsi					#move to next position
-	incq %rdi					#move to next position
-	jmp str_copy
-	
-	movb %cl, (%rdi)			#move the char to the new string
-	incq %rsi					#move to next position
-	incq %rdi					#move to next position
-	jmp str_copy
-equal:	
-	addb $6, %cl				#convert 'o' to 'u'
-	movb %cl, (%rdi)			#move the char to the new string
-	incq %rsi					#move to next position
-	incq %rdi					#move to next position
-	jmp str_copy
+vec_inc:
+	cmpl $0,%ecx				#Check if the array is empty
+	jz end
+	addl $2, (%rsi)				#add 2 to the element
+	addq $4, %rsi				#move to the next int
+	loop vec_inc				#jump to loop
 end:	
-	movb $0, (%rdi)			#put a 0 in the end of the string 
+	ret   							#return

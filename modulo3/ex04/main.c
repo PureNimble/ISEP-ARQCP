@@ -4,9 +4,11 @@
 
 int main()
 {
-	str_copy_porto2();
-	printf("%s\n",ptr1);
-	printf("%s\n",ptr2);
+	vec_add_two();
+	for(int i =0;i<num;i++)
+	{
+	printf("%i\n",vec[i]);
+	}
 	
 	return 0;
 }

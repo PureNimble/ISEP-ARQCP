@@ -11,4 +11,4 @@ clean:
 	rm -f *.0 output
 	
 run: output
-		./output
+	./output
