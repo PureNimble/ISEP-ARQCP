@@ -26,10 +26,6 @@ str_copy:
 	incq %rdi					#move to next position
 	jmp str_copy
 	
-	movb %cl, (%rdi)			#move the char to the new string
-	incq %rsi					#move to next position
-	incq %rdi					#move to next position
-	jmp str_copy
 equal:	
 	addb $6, %cl				#convert 'o' to 'u'
 	movb %cl, (%rdi)			#move the char to the new string
