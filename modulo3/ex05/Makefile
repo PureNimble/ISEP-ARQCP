@@ -1,9 +1,12 @@
-output: asm.o main.o
-	gcc asm.o main.o -o output
+output: vec_avg.o vec_sum.o main.o
+	gcc vec_avg.o vec_sum.o main.o -o output
 
-asm.o: asm.s
-	gcc -g -Wall -c asm.s
-	
+vec_sum.o: vec_sum.s
+	gcc -g -Wall -c vec_sum.s
+
+vec_avg.o: vec_avg.s
+	gcc -g -Wall -c vec_avg.s
+		
 main.o: main.c
 	gcc -g -Wall -c main.c
 	
