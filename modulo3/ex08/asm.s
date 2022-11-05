@@ -38,7 +38,8 @@ vec_sum_even:
 	movl num(%rip),%ecx				# mover num para ecx (para contar o numero de ciclos)
 	movq ptrvec(%rip),%rsi			# mover o valor do pointer para rsi
 	movq $0,%r8						# limpar rbx
-
+	
+	
 loop:								# inicio do loop 
 	
 	cmpl $0,%ecx					# verficar se vec e null
