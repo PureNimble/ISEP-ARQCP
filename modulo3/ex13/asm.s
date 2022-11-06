@@ -10,7 +10,7 @@
 
 ##########################################################	
 keep_positives:	
-	
+
 	movq ptrvec(%rip),%rsi
 	movw num(%rip), %cx
 	movw $0, %ax			# counter
@@ -25,11 +25,12 @@ loop:
 	
 index:	
 	movw %ax,(%rsi)			# vec[i]=i
-next:
+next: 
 	addq $2,%rsi			#move to next number	
 	incw %ax				# increase the counter
 	loop loop         		# loop
 end:
 	
+	ret 
 ##########################################################
 
