@@ -13,10 +13,10 @@
 ##########################################################	
 exists:	
 
-	movq ptrvec(%rip),%rsi
-	movl num(%rip), %ecx
-	movl x(%rip),%eax
-	movw $0,%di
+	movq ptrvec(%rip),%rsi		#move pointer to rsi
+	movl num(%rip), %ecx		#move the size of vec to ecx
+	movl x(%rip),%eax			#move the search number to eax
+	movw $0, %di				#clean the counter
 	cmpl $0, %ecx			#check if vec is null
 	jz end
 
@@ -40,9 +40,21 @@ next:
 
 duplicate:
 	movl $1,%eax
-
-end:
 	
+end:
+	movw %di,x(%rip)
 	ret 
 ##########################################################
-
+vec_diff:
+		
+	movq $0,%rdi
+	movl x(%rip),%edi
+	movl num(%rip),%eax
+	
+	cmpl $1,%edi
+	jle end_2
+	
+	subl %edi, %eax
+end_2:	
+	ret
+##########################################################

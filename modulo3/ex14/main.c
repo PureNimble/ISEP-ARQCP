@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "asm.h"
 
-int x = 5;
-int vec[]={1,2,3,4,5,5,8};
+int x = 1;
+int vec[]={1,2,3};
 int *ptrvec = vec;
-int num = 7;
+int num = 3;
 int main()
 {
 	int y = exists();
@@ -12,5 +12,7 @@ int main()
 	{printf("The number is duplicate\n");}
 	else
 	{printf("The number isn't duplicate\n");}
+	int z = vec_diff();
+	printf("Number of non duplicate numbers = %i \n",z);
 	return 0;
 }
