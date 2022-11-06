@@ -58,6 +58,7 @@ loop:								# inicio do loop
 	je sum_even						# jmp sum_even, pois e par
 	addq $8, %rsi					# proxima posicao
 	loop loop						#loop
+	jmp end_2
 sum_even:
 
 	addq (%rsi),%r8					# armazenar os numeros pares em rbx

@@ -2,9 +2,9 @@
 #include "asm.h"
 
 long even = 2;
-long vec[] = {1,2,3,4,5,6};
+long vec[] = {1,0,2};
 long *ptrvec = vec;
-int num = 6;
+int num = 3;
 int main()
 {	
 	long x = test_even();
