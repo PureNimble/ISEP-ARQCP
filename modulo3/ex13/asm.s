@@ -10,11 +10,11 @@
 
 ##########################################################	
 keep_positives:	
-
-	movq ptrvec(%rip),%rsi
-	movw num(%rip), %cx
+	movq $0,%rcx			# clear rcx
+	movq ptrvec(%rip),%rsi	# move the pointer to rsi
+	movw num(%rip), %cx		# move the number of elements of vec
 	movw $0, %ax			# counter
-	cmpw $0, %cx			#check if vec is null
+	cmpw $0, %cx			# check if vec is null
 	jz end
 
 loop:
