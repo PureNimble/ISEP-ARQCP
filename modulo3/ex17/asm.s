@@ -1,10 +1,15 @@
 .section .data
 
-	.global ptr1, ptr2, num
+	.global ptr1
+	.global ptr2 
+	.global num
 	
 .section .text
-.global swap
-swap:
+
+	.global array_sort
+	
+#############################################	
+array_sort:
 
 	movq ptr1(%rip), %rsi		# move the pointer 1 to rsi
 	movq ptr2(%rip), %rdi		# move the pointer 2 to rdi
@@ -27,3 +32,4 @@ str_swap:
 
 end:
 	ret
+#############################################	

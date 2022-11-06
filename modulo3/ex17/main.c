@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include "asm.h"
 
-int num = 50;
-char string1[50] = "O Porto ganhou ao Benfica mais uma vez";
-char string2[50] = "O Porto ganhou ao Sporting mais uma vez";
-char *ptr1 = string1;
-char *ptr2 = string2;
+short vec[]={1,2,3,4,5}
+short *ptrvec = vec;
+int num = 5;
 
 int main()
 {
