@@ -1,6 +1,5 @@
 #ifndef ASM_H 
 #define ASM_H 
- short num = 10;
  char string1[40] = "O Porto vai jogar";
  char string2[40] = "contra o Liverpool outra vez";
  char string3[80];
