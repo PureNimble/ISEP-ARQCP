@@ -12,14 +12,14 @@ frequencies:
 	pushq %r8
 	pushq %r9
 	pushq %r12
-	pushq %rbx
+	pushq %r10
 	pushq %rdx
 	pushq %rsi
 	pushq %rdi
 	
 	movq ptrgrades(%rip),%rsi						# move grades pointer to rsi
 	movq ptrfreq(%rip),%rdi							# move freq pointer to rdi	
-	movb $21,%bl									# size of freq[]
+	movb $21,%r10b									# size of freq[]
 	movq num(%rip),%rdx								# size of grades[]
 		
 	movb $0,%r8b									# i = 0
@@ -28,7 +28,7 @@ frequencies:
 
 first_loop:											# for (int i =0; i< 21;i++)
 	
-	cmpb %r8b,%bl									#  i < size 
+	cmpb %r8b,%r10b									#  i < size 
 	je end
 	
 	movl $0,%eax									# counter = 0					
@@ -71,7 +71,7 @@ end:
 	popq %rdi
 	popq %rsi
 	popq %rdx
-	popq %rbx
+	popq %r10
 	popq %r12
 	popq %r9
 	popq %r8
