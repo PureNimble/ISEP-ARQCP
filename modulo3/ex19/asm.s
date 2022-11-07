@@ -6,7 +6,7 @@
 .section .text
 .global frequencies
 
-
+#########################################################
 frequencies:
 
 	pushq %r8
@@ -26,6 +26,7 @@ frequencies:
 	movq $0,%r9										# j = 0	
 		
 
+#########################################################
 first_loop:											# for (int i =0; i< 21;i++)
 	
 	cmpb %r8b,%r10b									#  i < size 
@@ -35,6 +36,7 @@ first_loop:											# for (int i =0; i< 21;i++)
 	cmpl $0,num(%rip)								# check if grades[]= NULL
 	jz first_loop_continuation
 
+#########################################################
 second_loop:										# for (int j = i+1 ; i< num;j++)
 
 	cmpq %r9,%rdx									#   j < size  
@@ -56,6 +58,7 @@ second_loop_continuation:
 	jmp second_loop									# jmp second_loop
 	
 
+#########################################################
 first_loop_continuation:
 	
 	movsbq %r8b,%r12								# %r12 = i
@@ -67,6 +70,7 @@ first_loop_continuation:
 	jmp first_loop									# jmp first_loop
 	
 	
+#########################################################
 end:
 	popq %rdi
 	popq %rsi
@@ -77,3 +81,5 @@ end:
 	popq %r8
 	
 	ret
+
+#########################################################
