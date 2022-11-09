@@ -15,7 +15,7 @@ loop:
 	movb (%rdi), %dl		# a
 	movb (%rsi), %cl		# b
 	
-	cmpb $0, %dl			# check if string end
+	cmpb $0, %dl			# check if string end -> a
 	jz checksize
 	
 	cmpb %dl,%cl			# compare char
@@ -27,13 +27,13 @@ loop:
 
 not_equal:
 
-	decl %eax
+	decl %eax			# return = 0
 	
 	jmp end
 	
 checksize:
 
-	cmpb $0, %cl
+	cmpb $0, %cl		# check if string end -> b
 	jne not_equal
 		
 end:
