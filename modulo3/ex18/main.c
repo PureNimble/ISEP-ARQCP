@@ -2,19 +2,23 @@
 #include "asm.h"
 
 short src[]={5,4,3,2,1};
-short *ptrsrc = vec;
+short dest[];
+short *ptrsrc = src;
+short *ptrdest = dest;
+
 int num = 5;
 
 int main()
 {
-	for (int i= 0;i<num;i++)
-	{printf("%d, ",vec[i]);}
+	sort_without_reps();
 	
-	array_sort();
+	for (int i= 0;i<num;i++)
+	{printf("%d, ",src[i]);}
+	
 	printf("\n");
 	
 	for (int i= 0;i<num;i++)
-	{printf("%d, ",vec[i]);}
+	{printf("%d, ",dest[i]);}
 	
 	printf("\n");
 	return 0;

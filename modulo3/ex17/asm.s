@@ -39,7 +39,7 @@ second_loop:
     movw (%rsi,%r8,2),%bx                         # vec[i]
     movw (%rsi,%r9,2),%r12w                      # vec[j]
         
-    cmpw %bx,%r12w                                # vec[i] < vec[j]
+    cmpw %bx,%r12w                                # vec[i] > vec[j]
     jg swap_elements                            # jmp r12d is greater
     
     incq %r9                                    # j++
