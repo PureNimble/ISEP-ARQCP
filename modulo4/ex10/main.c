@@ -4,17 +4,11 @@
 int main()
 {
 
-	int a = 2;
-	int b = 10;
+	short w = 2;
 
-	int y = calculate(a,b);
-	printf("(%d-%d)-(%d*%d) = %d\n",a,b,a,b,y);
+
+	int y = call_incr(w);
+	printf("Return:%d\n",y);
 	
 	return 0;
-}
-
-void print_result(char op, int o1, int o2, int res) 
-{ 
-	printf("%d %c %d = %d\n", o1, op, o2, res); 
-	
 }
