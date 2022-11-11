@@ -19,6 +19,11 @@ proc:
 	#pop r10 7 parameter char x4
 	#pop r11 8 parameter char *p4
 	
+	# prologue
+	
+	pushq %rbp				# save the original value of rbp
+	movq %rsp, %rbp			# copy the current stack pointer to rbp
+	
 	movw 16(%rbp), %r10w	# 7 parameter (char x4)
 	movq 18(%rbp), %r11		# 8 parameter (char *p4)
 	
@@ -31,9 +36,12 @@ proc:
 	leaq (%r10,%r10,2),%rax	# 3 * x4
 	movb %al, (%r11)		# 3 * x4 = *p4
 	
+	#epilogue
 	
+	movq %rbp, %rsp			# retrieve thr original rsp value
+	popq %rbp				# restore the original rbp value
 	
-	ret						#return x
+	ret
 	
 #############################################
 call_proc:
