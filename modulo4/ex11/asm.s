@@ -37,7 +37,7 @@ proc:
 	movb %al, (%r11)		# 3 * x4 = *p4
 	
 	#epilogue
-	
+
 	movq %rbp, %rsp			# retrieve thr original rsp value
 	popq %rbp				# restore the original rbp value
 	
@@ -55,7 +55,8 @@ call_proc:
 	
 	pushq %rbp				# save the original value of rbp
 	movq %rsp, %rbp			# copy the current stack pointer to rbp
-	subq $32, %rbp
+	
+	subq $32, %rbp			# reserve 32 bits for local variables
 	
 	# function body
 	
