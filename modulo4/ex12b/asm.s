@@ -23,7 +23,7 @@ loop:
 	cmpl $32, %ecx		# i < 32
 	je end				
 	
-	sall %edi			# left shift x			
+	shrl %edi			# right shift x			
 	jc counter			# if carry  = 1 
 	incl %ecx			# increase i
 	jmp loop
