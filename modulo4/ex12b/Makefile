@@ -1,14 +1,14 @@
-ex10: count_bits_zero.o main.o
-	gcc -g -Wall count_bits_zero.o main.o -o ex10
+output: asm.o main.o
+	gcc asm.o main.o -o output
+
+asm.o: asm.s
+	gcc -g -Wall -c asm.s
 	
-count_bits_zero.o: count_bits_zero.s
-	gcc -g -Wall -c count_bits_zero.s -o count_bits_zero.o
-
 main.o: main.c
-	gcc -g -Wall -c main.c -o main.o
-
+	gcc -g -Wall -c main.c
+	
 clean:
-	rm -f *.o ex10
-
-run: ex10
-	./ex10
+	rm -f *.0 output
+	
+run: output
+	./output

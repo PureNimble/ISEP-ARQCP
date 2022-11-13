@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include "count_bits_zero.h"
+#include "asm.h"
  
 int main(void){
 	
 	int x = 46;
 	int resultado;
 	
-	resultado = count_bits_zero(x);
+	resultado = count_bits_one(x);
 	
-	printf("A quantidade de bits inativos é: %d\n", resultado);
+	printf("Number of 0 bits: %d\n", resultado);
 	
 	return 0;
 }
