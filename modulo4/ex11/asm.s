@@ -22,7 +22,7 @@ proc:
 	# prologue
 	
 	pushq %rbp				# save the original value of rbp
-	movq %rsp, %rbp			# copy the current stack pointer to rbp
+	movq %rsp, %rbp		# copy the current stack pointer to rbp
 	
 	movw 16(%rbp), %r10w	# 7 parameter (char x4)
 	movq 18(%rbp), %r11		# 8 parameter (char *p4)
@@ -79,6 +79,7 @@ call_proc:
 	movl %esi, %edx			# x2
 	pushq %r11				# 8 parameter *p4
 	pushw %cx				# 7 parameter char x4
+	
 	
 
 	call proc				# call the function (int x1, int *p1, int x2, int *p2, short x3, short *p3, char x4, char *p4)
