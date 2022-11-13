@@ -8,7 +8,7 @@ int main(void){
 	
 	y = count_bits_one(x);
 	
-	printf("Number of 0 bits = %d\n", y);
+	printf("Number of active bits = %d\n", y);
 	
 	return 0;
 }

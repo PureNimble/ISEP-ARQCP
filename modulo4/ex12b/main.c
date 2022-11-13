@@ -4,11 +4,11 @@
 int main(void){
 	
 	int x = 46;
-	int resultado;
+	int y;
 	
-	resultado = count_bits_one(x);
+	y = count_bits_one(x);
 	
-	printf("Number of 0 bits: %d\n", resultado);
+	printf("Number of active bits: %d\n", y);
 	
 	return 0;
 }
