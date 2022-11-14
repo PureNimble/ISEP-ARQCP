@@ -22,7 +22,7 @@ proc:
 	# prologue
 	
 	pushq %rbp				# save the original value of rbp
-	movq %rsp, %rbp		# copy the current stack pointer to rbp
+	movq %rsp, %rbp			# copy the current stack pointer to rbp
 	
 	movw 16(%rbp), %r10w	# 7 parameter (char x4)
 	movq 18(%rbp), %r11		# 8 parameter (char *p4)
