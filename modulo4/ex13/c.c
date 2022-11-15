@@ -4,5 +4,5 @@ int rotate_left(int num, int nbits){
 }
 int rotate_right(int num, int nbits){
 
-	return (num >> nbits)|(num << (32 - nbits)); // same thing of the right side
+	return (num >> nbits)|(num << (32 - nbits)); // same thing for the right side
 }

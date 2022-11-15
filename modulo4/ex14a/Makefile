@@ -1,8 +1,8 @@
-output: count_bits_one.o main.o
-	gcc count_bits_one.o main.o -o output
+output: c.o main.o
+	gcc c.o main.o -o output
 
-count_bits_one.o: count_bits_one.c
-	gcc -g -Wall -c count_bits_one.c
+c.o: c.c
+	gcc -g -Wall -c c.c
 	
 main.o: main.c
 	gcc -g -Wall -c main.c

@@ -1,14 +1,14 @@
-int count_bits_one(int x){
+int reset_bit(int *ptr, int pos){
 	
-	int i;							// right shift variable
-	int carry;						// carry
-	int counter = 0;				
-						
-	for (i = 1; i <= 32; i++){		// cicle for 32 bits (int)
-    	carry = x >> i;				// right shift x
-    	if (carry & 1){				// 1 & 1 = 1
-			counter++;				// is a one
-    	}							// if = 0 doesn't do anything
-  	}
-  	return counter;				// return the counter
+	
+	int mask1 = (1 << pos);						// shift left (pos) bits
+	int mask2 = ~mask1; 						// reverse the bits of mask1
+	int x = mask1 & *ptr;						// ex:. 0010 & 1010 = 0010
+	
+	*ptr = *ptr & mask2;						// 1010 & 1101 = 1
+	
+	if (x == 0){								// if x = 0 the bit was 0
+		return 0;
+	}else{return 1;}							// ohterwise it was a 1 
+
 }
