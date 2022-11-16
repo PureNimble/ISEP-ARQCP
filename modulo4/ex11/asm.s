@@ -65,10 +65,12 @@ call_proc:
 	pushq %rdx				# push x3
 	pushq %rcx 				# push x4
 	
+	movl %ecx,%r10d			# move x4 to r10d
+	
 	movl %edi, -8 (%rbp)	# x1 -> local variable
 	movl %esi, -16(%rbp)	# x2 -> local variable
 	movl %edx, -24(%rbp)	# x3 -> local variable
-	movl %ecx, -32(%rbp)	# x4 -> local variable
+	movl %r10d, -32(%rbp)	# x4 -> local variable
 	
 	leaq -8 (%rbp), %rsi	# &x1
 	leaq -16(%rbp), %rcx	# &x2
@@ -78,7 +80,7 @@ call_proc:
 	movw %dx, %r8w			# x3
 	movl %esi, %edx			# x2
 	pushq %r11				# 8 parameter *p4
-	pushw %cx				# 7 parameter char x4
+	pushw %r10w				# 7 parameter char x4
 	
 	
 
