@@ -24,10 +24,10 @@ proc:
 	pushq %rbp				# save the original value of rbp
 	movq %rsp, %rbp			# copy the current stack pointer to rbp
 	
-	movw 16(%rbp), %r10w	# 7 parameter (char x4)
-	movq 18(%rbp), %r11		# 8 parameter (char *p4)
+	movq 16(%rbp), %r10		# 7 parameter (char x4)
+	movq 24(%rbp), %r11		# 8 parameter (char *p4)
 	
-	movl %edi,(%rsi)		# move x1 to *p1
+	movl %edi, (%rsi)		# move x1 to *p1
 	addl %edx, (%rsi)		# x1 + x2 = *p1
 	movl %edx, (%rcx)		# move x2 to *p2
 	subl %edi, (%rcx)		# x2 - x1 = *p2
@@ -56,47 +56,55 @@ call_proc:
 	pushq %rbp				# save the original value of rbp
 	movq %rsp, %rbp			# copy the current stack pointer to rbp
 	
-	subq $32, %rbp			# reserve 32 bits for local variables
+	subq $32, %rsp			# reserve 32 bits for local variables
 	
 	# function body
 	
-	pushq %rdi				# push x1
-	pushq %rsi				# push x2
-	pushq %rdx				# push x3
-	pushq %rcx 				# push x4
+
 	
 	movl %ecx,%r10d			# move x4 to r10d
 	
 	movl %edi, -8 (%rbp)	# x1 -> local variable
 	movl %esi, -16(%rbp)	# x2 -> local variable
 	movl %edx, -24(%rbp)	# x3 -> local variable
-	movl %r10d, -32(%rbp)	# x4 -> local variable
+	movl %r10d,-32(%rbp)	# x4 -> local variable
+	
+	
 	
 	leaq -8 (%rbp), %rsi	# &x1
 	leaq -16(%rbp), %rcx	# &x2
 	leaq -24(%rbp), %r9		# &x3
 	leaq -32(%rbp), %r11	# &x4
 	
+	pushq %rsi
+	pushq %rcx
+	pushq %r9
+	pushq %r11
+	
 	movw %dx, %r8w			# x3
 	movl %esi, %edx			# x2
 	pushq %r11				# 8 parameter *p4
-	pushw %r10w				# 7 parameter char x4
+	pushq %r10				# 7 parameter char x4
 	
 	
 
 	call proc				# call the function (int x1, int *p1, int x2, int *p2, short x3, short *p3, char x4, char *p4)
-	addq $10,%rsp
+	addq $16,%rsp
 	
-	popq %rcx				# pop x4
-	popq %rdx				# pop x3
-	popq %rsi				# pop x2
-	popq %rdi				# pop x1
+	popq %r11
+	popq %r9
+	popq %rcx
+	popq %rsi
 	
-	addl %edi,%esi			# (x1 + x2)
-	subl %ecx,%edx			# (x3 - x4)
-	imull %esi,%edx			# (x1 + x2) * (x3 - x4)
-	movl %edx,%eax			# return the value
-	
+	movl (%rsi), %eax	#x1
+	movl (%rcx), %r10d	#x2
+	movl (%r9),  %edi	#x3
+	movl (%r8),  %r11d	#x4
+
+	addl %r10d, %eax			# (x1 + x2)
+	subl %r11d, %edi			# (x3 - x4)
+	imull %edi, %eax			# (x1 + x2) * (x3 - x4)
+
 	#epilogue
 	
 	movq %rbp, %rsp			# retrieve thr original rsp value
