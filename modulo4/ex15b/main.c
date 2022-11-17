@@ -2,17 +2,15 @@
 #include "asm.h"
  
 int main(void){
-	int x = 10;
-	int pos = 4;
-	int * ptr = &x;
+	int a = 10;
+	int left = 30;
+	int right = 10;
 	
-	y = reset_bit(ptr,pos);
+	y = activate_bits(a,left,right);
 	
-	if(y == 1){
-		printf("The %d bit, was changed from 0 to 1 \n", pos);
-	}else{
-		printf("The %d bit, wasn't changed\n", pos);
-	}
+	
+	printf("After the change:\n", y);
+
 	
 	return 0;
 }
