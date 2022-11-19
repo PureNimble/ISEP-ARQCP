@@ -7,34 +7,52 @@
 #######################################################	
 greater_date:
 
-	# %edi = a
-	# %esi = b
-	# %edx = pos
+	# %edi = date1
+	# %esi = date2
+
 	
 	#prologue
 	pushq %rbp  		# save the original value of RBP  
 	movq %rsp, %rbp 	# copy the current stack pointer to RBP
 	
 #------------------------------------------------------
-	movl $1, %eax		# 1	
-	movl %edx,%ecx		# move edx to ecx
+	pushq %rsi			# push date2
+	pushq %rdi			# push date1
+
+	rorl $8,%edi		# di = year1
+	rorl $8,%esi		# si = year2
 	
-	shl %cl,%eax		# Shift left (pos) bits 
-	subl $1,%eax		# (Shift left (pos) bits) - 1 = mask with 1s before (pos) and 0s after (pos)
+	cmpw %si,%di		# compare (di = year1 , si = year2)
+	jg date1			
+	jl date2
 	
-	shl %eax			# (Shift left (pos) bits) - 1 = mask with 1s before (pos) and 0s after (pos)
-	incl %eax			# Active the first bit, that was changed in the last line
+	roll $8,%edi		# dil = month1
+	roll $8,%esi		# sil = month2
 	
-	andl %eax,%edi		# a & mask ( clear the left bits of a, start at (pos+1) )
-	notl %eax			# ~mask
+	cmpb %sil,%dil		# compare (dil = month1 , sil = month2)
+	jg date1			
+	jl date2
 	
-	andl %eax, %esi		# b & ~mask ( clear the right bits of b, start at pos )
+	rorl $24,%edi		# dil = day1
+	rorl $24,%esi		# sil = day2
 	
-	orl %edi,%esi		# a | b ( combine all bits )
+	cmpb %sil,%dil		# compare (dil = day1 , sil = day2)
+	jg date1			
+	jl date2
 	
-	movl %esi,%eax
+	roll $24,%edi		# restore the number
+	movl %edi,%eax		# date is equal, return esi or edi
+
+	jmp end
+date1:
+	movq -16(%rbp),%rdi
+	movl %edi,%eax		# return date1
+	jmp end
+date2:
+	movq -8(%rbp),%rsi
+	movl %esi,%eax		# return date2
 #------------------------------------------------------
-		
+end:		
 	#epiloque 
 	movq %rbp, %rsp 	# retrieve the original RSP value
 	popq %rbp			# restore the original RBP value
