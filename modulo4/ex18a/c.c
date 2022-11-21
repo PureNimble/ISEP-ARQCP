@@ -9,8 +9,5 @@ void changes(int *ptr){
 
 			bits++;					// next bit
 		}
-	}else{
-		
-		
 	}
 }
