@@ -2,12 +2,14 @@
 	
 .section .text
 
-	.global changes
+	.global add_byte
 
 #######################################################	
-changes:
+add_byte:
 
-	# %rdi = *ptr
+	# %dil = x
+	# %rsi = *vec1
+	# %rdx = *vec2
 
 
 	
@@ -16,15 +18,26 @@ changes:
 	movq %rsp, %rbp 	# copy the current stack pointer to RBP
 	
 #------------------------------------------------------
-	movl (%rdi), %eax	# move the number to eax
-	andl $0xff00,%eax	# number & mask = just the second byte
-	shrl $8, %eax		# second byte
-	
-	cmpl $15,%eax    	# check if the second byte is greater then 15
-	jle end
-	
-	xorl $0xFF0000,(%rdi)	# inverte the bits in the third byte
+	movl (%rsi),%ecx		# declarate the counter
+	movl %ecx, (%rdx)		# move the 1 element to vec2
 
+	addq $4,%rsi			# move to the second element
+	addq $4,%rdx			# move to the second space
+	
+	cmp $0,%ecx				# check if vec != NULL
+	jz end
+loop:
+	
+	movl (%rsi),%eax		# move number to eax
+	
+	addb %dil,%al			# 1byte + x = al
+
+	movl %eax,(%rdx)		# move to vec2
+	
+	addq $4,%rsi			# next number
+	addq $4,%rdx			# next space
+
+	loop loop				# loop
 #------------------------------------------------------
 end:		
 	#epiloque 

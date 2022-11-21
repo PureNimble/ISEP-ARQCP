@@ -1,4 +1,4 @@
 #ifndef ASM_H
 #define ASM_H
-void changes(int *ptr);
+void add_byte(char x, int *vec1, int *vec2);
 #endif
