@@ -20,7 +20,7 @@ frequencies:
 	movq ptrgrades(%rip),%rsi						# move grades pointer to rsi
 	movq ptrfreq(%rip),%rdi							# move freq pointer to rdi	
 	movb $21,%r10b									# size of freq[]
-	movq num(%rip),%rdx								# size of grades[]
+	movl num(%rip),%edx								# size of grades[]
 		
 	movb $0,%r8b									# i = 0
 	movq $0,%r9										# j = 0	
@@ -33,7 +33,7 @@ first_loop:											# for (int i =0; i< 21;i++)
 	je end
 	
 	movl $0,%eax									# counter = 0					
-	cmpl $0,num(%rip)								# check if grades[]= NULL
+	cmpl $0,%edx									# check if grades[]= NULL
 	jz first_loop_continuation
 
 #########################################################
