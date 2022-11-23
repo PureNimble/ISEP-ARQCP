@@ -12,7 +12,7 @@ count_max:
 
 	movq ptrvec(%rip), %rsi		# move the pointer 1 to rsi
 	movl num(%rip), %ecx        # move num to ecx for counter
-	movl $0, %eax				# clear the counter
+	movl $0, %eax				# clear the sum variable
 	cmpl $0, %ecx				# check if vec is null
 	jz end
 loop:
