@@ -3,8 +3,10 @@
 int main(void){
 	
 	Student s1;
-	char grades[5]={15,10,0,20};
-	update_grades(s1,grades);
+	Student array[5];
+	char address[]= "boas";
+	
+	update_(&s1, &address);
 	
 	return 0;
 }
