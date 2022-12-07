@@ -17,7 +17,6 @@ int find_matrix(int **m, int y, int k, int num){
 	// num -> number being searched
 	y--;									// vec[0] -> posicao 1
 	k--;									// vec[0] -> posicao 1
-	
 	if(*(*(m+y)+k) == num)					// check if m[y][k] == num
 	{
 		return 1;							// 1 if is equal
