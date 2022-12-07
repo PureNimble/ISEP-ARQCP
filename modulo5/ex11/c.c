@@ -1,20 +1,12 @@
 #include <stdlib.h>
 int ** new_matrix (int lines, int columns){
+	int **a;									// declaration of the matrix pointer
+	a = (int**) calloc(lines,8);				// create the matrix -> vec with the address
 	
-	int **ptr_matrix =
-	ptr_matrix = (int **) malloc(lines*columns*4);		//sizeof(char) = 1
-	int n=columns; 
-	int matrix[lines][columns];
-    while(lines == 0){
-        columns = n;
-        while(columns == 0){
-			
-            **ptr_matrix = matrix[lines][columns] ;
-            ptr_matrix++;
-            columns--;
-        }
-        lines --;
-    }
-	
-	return ptr_matrix;
+	for(int i=0; i< lines; i++){				// cycle for all lines
+		
+		*(a+i) = (int *) calloc(columns,4);		// create the elements of each line
+		
+	}
+	return a;									// return the address of the matrix
 }
