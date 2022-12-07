@@ -1,6 +1,5 @@
 .section .data
-	
-	.equ GRADES_OFFSET, 4			# the address starts at the byte 4
+	.equ GRADES_OFFSET, 4		# the address starts at the byte 4
 
 .section .text
 
@@ -14,20 +13,22 @@ locate_greater:
 	#rdx = *greater_grade
 		
 	addq $GRADES_OFFSET,%rdi
-	movb $5,%cl					# move 5 to the loop counter
-	movl $0,%eax				# clear the counter
+	movq $0,%rcx					# move 5 to the loop counter
+	movq $0,%r9				# clear the counter
 loop:
-	movl (%rdx),%r8d
-	cmpl %esi,%r8d
+	cmpq $5, %rcx
+	je end
+	movl (%rdi , %rcx , 4), %eax
+	cmpl %esi,%eax
 	jle next
-	
-	incl %eax
-	movl %r8d,(%rdi)
-	addq $4,%rdi
+	incq %r9
+	movl %eax, (%rdx)
+	addq $4, %rdx
 next:
-	addq $4,%rdx
-	loop loop
-
+	incq %rcx
+	jmp loop
+end:
+	movq %r9, %rax
 	ret					# return the value in eax
 	
 #############################################
