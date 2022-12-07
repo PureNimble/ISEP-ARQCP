@@ -46,7 +46,7 @@ short:
 	jmp short
 	
 end:
-	movl %edx,J_OFFSET(%r9)
+	movl %edx,J_OFFSET(%r9)	
 	ret					# return the value in eax
 	
 #############################################
