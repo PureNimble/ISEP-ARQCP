@@ -12,15 +12,30 @@ int ** new_matrix (int lines, int columns){
 }
 int find_matrix(int **m, int y, int k, int num){
 	
+	int i,j;
 	// y -> lines
 	// k -> columns
 	// num -> number being searched
-	y--;									// vec[0] -> posicao 1
-	k--;									// vec[0] -> posicao 1
-	
-	if(*(*(m+y)+k) == num)					// check if m[y][k] == num
-	{
-		return 1;							// 1 if is equal
+
+
+
+    int * ptrColumn = *m;				// save the address of  the first column
+
+	//lines cycle
+	for(i= 0; i<y; i++){
+		// columns cycle
+		for(j= 0; j<k; j++){
+			
+			if((*ptrColumn) == num)					// if num is equal return 1
+			{
+				return 1;				
+			}
+			ptrColumn++;							// move to the next column of the same line
+		}
+		m++;										// move to the next line
+		
+		ptrColumn = *m;								// reset ptrColumn to the first element of the line
 	}
-	return 0;								// 0 if is different
+	
+	return 0;									// if num not found return 0
 }
