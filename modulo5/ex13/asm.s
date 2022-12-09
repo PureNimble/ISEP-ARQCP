@@ -11,35 +11,42 @@ count_odd_matrix:
 	# %esi = y -> line
 	# %edx = k -> column
 	
-	#prologue
-	pushq %rbp  		# save the original value of RBP  
-	movq %rsp, %rbp 	# copy the current stack pointer to RBP
 	
-#------------------------------------------------------
-	movl %edx,%ecx				
-	shll %ecx,%esi			# shift left 
-	addq %rsi,%rdi
+	movl $0,%eax						# clear the counter
+	movl %edx,%ecx						# save the number of columns
+
+looplines:
+
+	cmpl $0, %esi 						# check for the end of the lines				
+	jz end
+	movq (%rdi), %r9					# get the column pointer				
+										
+										# go to the second loop					 
+
+loopcolumn:
+	cmpl $0, %edx 						# check for the end of the columns of one line			
+	jz nextline 						
+
+	movl (%r9), %r8d 					# get the number					
+	andl $1, %r8d  						# get the first bit	
 	
-	movl (%rdi,%rdx,4), %eax
+	cmpl $0, %r8d 						# check if it is 1 ( if the first bit is 1 than the number is odd)	
+	jz even
 	
-	andl $1,eax
-	xorl $1,%eax
-		
-	cmpl $0,%eax
-	jz  end
-	incl %eax
+	incl %eax							# increase the counter
 	
-	
-end:	
-	
-	
-	
-	
-#------------------------------------------------------
-		
-	#epiloque 
-	movq %rbp, %rsp 	# retrieve the original RSP value
-	popq %rbp			# restore the original RBP value
+even:
+	decl %edx 							# decrease the counter				
+	addq $8, %r9						# move to the next column 								
+	jmp loopcolumn 						# loop
+
+nextline:
+	movl %ecx, %edx 					# reset the counter of columns							
+	addq $8, %rdi						# move to the next line					 
+	decl %esi 									
+	jmp looplines								  											 
+									
+end:
 	
 	ret
 	

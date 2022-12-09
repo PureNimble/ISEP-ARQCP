@@ -1,35 +1,53 @@
 #include <stdio.h>
 #include "asm.h"
-void fill_student(Student *s, char age, short number, char *name, char *adress);
-int main(void){
-	
-	Student s1;
-	char grades[5]={15,10,0,20};
-	update_grades(s1,grades);
-	
-	return 0;
-}
+#include "fill_student.h"
+#include <string.h>
 
 
+int main(){
 
-void fill_student(Student *s, char age, short number, char *name, char *adress){
-	int i=0;
-	s-> number = number;			// move the number to the struct s
-	s-> age = age;					// move the age to the struct s
-	
-	while((*name) != 0){			// move each char to the struct s	
-			
-		s-> name[i] = *name;		// 
-		name++;						// move to the next element
-		i++;						// move to the next element
-	}
-	s-> name[i] = 0;				// end the string	
-	i =0;
-	while(*adress != 0){			// same thing to the adress
-		s-> adress[i] = *adress;
-		adress++;
-		i++;
-	}
-	s-> adress[i] = 0;				// end the string
+    Student vec[5];
 
+    Student * s = vec;
+
+    char nome [80] = "Antonio";
+    char *ptrnome = nome;
+    char address [120] = "Rua 3, 454";
+    char *ptraddress = address;
+    fill_student(s, 18, 100, ptrnome, ptraddress);
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+    s++;
+
+    strcpy(ptrnome, "Ana");
+    strcpy(ptraddress,"Rua 5, 123");
+    fill_student(s, 19, 101, ptrnome, ptraddress);
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+    s++;
+
+    strcpy(ptrnome, "Raul");
+    strcpy(ptraddress,"Rua 15, 153");
+    fill_student(s, 19, 102, ptrnome, ptraddress);
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+    s++;
+
+    strcpy(ptrnome, "Nuno");
+    strcpy(ptraddress,"Rua 979, 13");
+    fill_student(s, 19, 103, ptrnome, ptraddress);
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+    s++;
+
+    strcpy(ptrnome, "Nelson");
+    strcpy(ptraddress,"Rua Prg, 0");
+    fill_student(s, 19, 104, ptrnome, ptraddress);
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+
+    //Nova morada e apontador para a mesma
+    char new_address_string [120] = "Rua do Isep,123";
+    char *new_address = new_address_string;
+    //Chama a função que substitui a address
+    update_address(s, new_address);
+    //Imprime o ultima estrutura, pois é esta que é passada por parametro
+    printf("Nome: %s\nIdade: %d\nNumero: %d\nAddress: %s\n\n\n", s->name, s->age, s->number, s->address);
+
+    return 0;
 }

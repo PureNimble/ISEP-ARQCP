@@ -1,12 +1,13 @@
 #include <stdio.h>
-#include "asm.h"
-int main(void){
-	
-	Student s1;
-	Student array[5];
-	char address[]= "boas";
-	
-	update_(&s1, &address);
-	
-	return 0;
+#include "new_matrix.h"
+
+int main(){
+
+    //invoca a funçao e imprime o endereço da matrix
+    int ** matrix = new_matrix(5,6);
+    printf("Address of matrix = %p\n", (*matrix));
+    
+
+    return 0;
+
 }
