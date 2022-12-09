@@ -1,8 +1,8 @@
-output: c.o main.o
-	gcc c.o main.o -o output
+output: fill_student.o main.o
+	gcc fill_student.o main.o -o output
 
-c.o: c.c
-	gcc -g -Wall -c c.c
+fill_student.o: fill_student.c
+	gcc -g -Wall -c fill_student.c
 	
 main.o: main.c
 	gcc -g -Wall -c main.c

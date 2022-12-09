@@ -1,12 +1,5 @@
-typedef struct{
-	short number;
-	char age; 
-	int grades[5];
-	char name[60];
-	char adress[100];
-}Student;
-
-void fill_student(Student *s, char age, short number, char *name, char *adress){
+#include "fill_student.h"
+void fill_student(Student *s, char age, short number, char *name, char *address){
 	int i=0;
 	s-> number = number;			// move the number to the struct s
 	s-> age = age;					// move the age to the struct s
@@ -19,11 +12,11 @@ void fill_student(Student *s, char age, short number, char *name, char *adress){
 	}
 	s-> name[i] = 0;				// end the string	
 	i =0;
-	while(*adress != 0){			// same thing to the adress
-		s-> adress[i] = *adress;
-		adress++;
+	while(*address != 0){			// same thing to the adress
+		s-> address[i] = *address;
+		address++;
 		i++;
 	}
-	s-> adress[i] = 0;				// end the string
+	s-> address[i] = 0;				// end the string
 
 }

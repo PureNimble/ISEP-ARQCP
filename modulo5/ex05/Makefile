@@ -1,11 +1,11 @@
-output: asm.o main.o
-	gcc asm.o main.o -o output
+output: update_grades.o main.o
+	gcc update_grades.o main.o -o output
 	
 main.o: main.c
 	gcc -g -Wall -c main.c
 	
-asm.o: asm.s
-	gcc -g -Wall -c asm.s
+update_grades.o: update_grades.s
+	gcc -g -Wall -c update_grades.s
 	
 clean:
 	rm -f *.0 output
