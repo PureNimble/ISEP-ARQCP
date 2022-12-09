@@ -12,7 +12,7 @@ count_odd_matrix:
 	# %edx = k -> column
 	
 	
-	movl $0,%eax						# clear the counter
+	movl $0,%eax						# declaration of the counter
 	movl %edx,%ecx						# save the number of columns
 
 looplines:
@@ -36,14 +36,14 @@ loopcolumn:
 	incl %eax							# increase the counter
 	
 even:
-	decl %edx 							# decrease the counter				
-	addq $8, %r9						# move to the next column 								
+	decl %edx 							# decrease the index of columns				
+	addq $4, %r9						# move to the next column 								
 	jmp loopcolumn 						# loop
 
 nextline:
-	movl %ecx, %edx 					# reset the counter of columns							
+	movl %ecx, %edx 					# reset the column index						
 	addq $8, %rdi						# move to the next line					 
-	decl %esi 									
+	decl %esi 							# decrease the index of lines						
 	jmp looplines								  											 
 									
 end:
